@@ -1,0 +1,33 @@
+
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .navbar-brand {
+    font-weight: bold;
+  }
+  
+  .navbar-search {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 0.5rem;
+  }
+  
+  .navbar-search input {
+    flex: 1;
+    border: none;
+    outline: none;
+  }
+  
+  .navbar-hamburger {
+    /* Hamburger icon styles here */
+  }
+  

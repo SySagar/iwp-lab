@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dummy Grid with Unsplash Images</title>
+  <style>
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr); /* Create a 3-column grid */
+      gap: 20px;
+    }
+
+    .grid-item {
+      border: 1px solid #ccc;
+      padding: 20px;
+      text-align: center;
+      position: relative; 
+      height: 300px;
+    }
+
+    .grid-item img {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 190px; 
+      object-fit: cover; 
+    }
+
+    .grid-item h3,
+    .grid-item p {
+      margin-top: 5px; 
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-container">
+  </div>
+
+  <script>
+    const gridContainer = document.querySelector('.grid-container');
+
+    const data = [
+      { title: 'Item 1', date: '2024-11-28', heading: 'Heading 1' },
+      { title: 'Item 2', date: '2024-12-05', heading: 'Heading 2' },
+      { title: 'Item 3', date: '2024-08-05', heading: 'Heading 3' },
+      { title: 'Item 4', date: '2024-24-05', heading: 'Heading 4' },
+      { title: 'Item 5', date: '2024-12-05', heading: 'Heading 5' },
+    ];
+
+    function createGridItem(item) {
+      const gridItem = document.createElement('div');
+      gridItem.classList.add('grid-item');
+
+      // Generate a random Unsplash image URL
+      const randomImageURL = `https://picsum.photos/200/150?random=${Math.random()}`;
+
+      gridItem.innerHTML = `
+        <img src="${randomImageURL}"  alt="Random Unsplash Image">
+        <div >
+            <h3>${item.heading}</h3>
+            <p>${item.title}</p>
+            <p>${item.date}</p>
+            </div>
+      `;
+
+      return gridItem;
+    }
+
+    data.forEach(item => {
+      const gridItem = createGridItem(item);
+      gridContainer.appendChild(gridItem);
+    });
+  </script>
+</body>
+</html>
